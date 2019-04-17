@@ -1,0 +1,3 @@
+#!/bin/sh
+
+asciidoctor --destination-dir=html adoc/*.adoc
