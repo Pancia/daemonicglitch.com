@@ -30,17 +30,6 @@ asciidoctor --trace \
     -- $PAGES_DIR/**/*.adoc
 
 if [[ "$OSTYPE" =~ "darwin" ]]; then
-    asciidoctor --trace \
-        -a stylesdir=../$STYLES_DIR -a stylesheet=$STYLE_SHEET \
-        -a stylehref="/css/$STYLE_SHEET" \
-        -a blogentry=true \
-        --destination-dir $DEST_DIR/drafts \
-        --source-dir drafts \
-        --template-dir $TEMPLATE_DIR \
-        drafts/**/*.adoc
-fi
-
-if [[ "$OSTYPE" =~ "darwin" ]]; then
     nginx -s reload
 else
     service nginx reload
