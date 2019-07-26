@@ -3,13 +3,13 @@
 bundle
 
 if [[ "$OSTYPE" =~ "darwin" ]]; then
-    ln -sf ~/blogs/daemonicwitchcraft.net/conf/nginx.localhost.conf \
-        /usr/local/etc/nginx/servers/daemonicwitchcraft.net
+    ln -sf ~/blogs/daemonicglitch.com/conf/nginx.localhost.conf \
+        /usr/local/etc/nginx/servers/daemonicglitch.com
 
     nginx -s stop; nginx
 else
-    ln -sf /var/www/daemonicwitchcraft.net/conf/nginx.conf \
-        /etc/nginx/sites-enabled/daemonicwitchcraft.net
+    ln -sf /var/www/daemonicglitch.com/conf/nginx.conf \
+        /etc/nginx/sites-enabled/daemonicglitch.com
 
     service nginx restart
 fi
