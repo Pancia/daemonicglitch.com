@@ -1,0 +1,8 @@
+= test article, please ignore
+:published-date: 2019-05-28
+
+[[abstract]]
+test abstract, nothing to see here
+
+i now have an abstract!
+how mundane...

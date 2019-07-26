@@ -1,3 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
-asciidoctor --destination-dir=html adoc/*.adoc
+bundle
+
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+    ln -sf ~/blogs/daemonicwitchcraft.net/conf/nginx.localhost.conf \
+        /usr/local/etc/nginx/servers/daemonicwitchcraft.net
+
+    nginx -s stop; nginx
+else
+    ln -sf /var/www/daemonicwitchcraft.net/conf/nginx.conf \
+        /etc/nginx/sites-enabled/daemonicwitchcraft.net
+
+    service nginx restart
+fi

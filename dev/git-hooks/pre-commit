@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require 'asciidoctor/extensions'
+
+include Asciidoctor
+
+staged_files = %x[ git diff --cached --name-only].split "\n"
+docs = Dir["articles/*.adoc"].select{|file|
+    staged_files.include? file
+}.map { |file|
+    Asciidoctor.load_file(file, safe: :safe)
+}
+
+no_date_docs = docs.select { |doc| not doc.attr? 'published-date' }
+if not no_date_docs.empty? then
+    abort "ERROR: #{no_date_docs.map{ |doc| doc.title }} are missing a ':published-date' attribute"
+end
+
+no_abstract_docs = docs.select { |doc| doc.find_by(id: "abstract").empty? }
+if not no_abstract_docs.empty? then
+    abort "ERROR: #{no_abstract_docs.map{ |doc| doc.title }} are missing an '[[abstract]]' section"
+end

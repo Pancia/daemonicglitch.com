@@ -1,0 +1,61 @@
+doctype 5
+html lang=(attr :lang, 'en' unless attr? :nolang)
+  head
+    meta charset=(attr :encoding, 'UTF-8')
+    /[if IE]
+      meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    meta name='generator' content="Asciidoctor #{attr 'asciidoctor-version'}"
+    = html_meta_if 'application-name', (attr 'app-name')
+    = html_meta_if 'author', (attr :authors)
+    = html_meta_if 'copyright', (attr :copyright)
+    = html_meta_if 'description', (attr :description)
+    = html_meta_if 'keywords', (attr :keywords)
+    title=((doctitle sanitize: true) || (attr 'untitled-label'))
+    = styles_and_scripts
+    - unless (docinfo_content = docinfo).empty?
+      =docinfo_content
+  body(id=id
+       class=[(attr :doctype), ("#{attr 'toc-class'} toc-#{attr 'toc-position', 'left'}" if (attr? 'toc-class') && (attr? :toc) && (attr? 'toc-placement', 'auto'))])
+    - unless noheader
+      header#header
+        h1: a[href='/'] daemonic witchcraft
+        hr
+        nav.menu: ul
+          li: a[href='/about'] about
+          li: a[href='/'] blog
+          li: a[href='/projects'] projects
+        - if (attr? :toc) && (attr? 'toc-placement', 'auto')
+          #toc class=(attr 'toc-class', 'toc')
+            #toctitle =(attr 'toc-title')
+            = converter.convert document, 'outline'
+    main#content
+      - if (attr? :blogentry)
+        article
+          h2 = doctitle
+          span.date =(attr 'published-date')
+          = content
+      - if !(attr? :blogentry)
+        = content
+      - if (attr? :blogentry)
+        nav.links
+          - if prev_article
+            a.prev[href=(prev_article[:link])]
+              = prev_article[:text]
+          - if next_article
+            a.next[href=(next_article[:link])]
+              = next_article[:text]
+    - unless !footnotes? || (attr? :nofootnotes)
+      #footnotes
+        hr
+        - footnotes.each do |f|
+          .footnote id=(footnote_id f.index)
+            a href="##{footnoteref_id f.index}" =f.index
+            |. #{f.text}
+    - unless nofooter
+      footer#footer
+        #license
+          a[rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"]
+            img [alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"]
+        - unless (docinfo_content = (docinfo :footer)).empty?
+          =docinfo_content

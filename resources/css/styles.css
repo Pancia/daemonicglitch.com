@@ -1,0 +1,164 @@
+html,body {
+    height: 100%;
+}
+
+html, body, div, img, a, p, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+p {
+    line-height: 1.4em;
+}
+
+h1, h2 {
+    font-weight: normal;
+}
+
+h2 {
+    margin: 0 0 0.2em 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: #00b1ab;
+}
+
+a:before {
+    content: "{ ";
+    color: #b1005d;
+}
+
+a:after {
+    content: " }";
+    color: #b1005d;
+}
+
+header a:before, header a:after,
+h2 a:before, h2 a:after,
+h3 a:before, h3 a:after,
+a.no_highlight:before, a.no_highlight:after,
+.no_highlight a:before, .no_highlight a:after {
+    content: "";
+}
+
+#header {
+    max-width: 42em;
+    margin: 0 auto 3em auto;
+    padding-top: 1.5em;
+    text-align: center;
+}
+
+#header h1 {
+    font-size: 2.5em;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+#header h1 a {
+    color: #b1005d;
+}
+
+#header hr {
+    border-top: 1px solid #000;
+    border-right: none;
+    border-bottom: 1px solid #fff;
+    border-left: none;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+#header ul {
+    font-family: 'OpenSans', sans-serif;
+    list-style: none;
+    float: right;
+}
+
+#header ul li {
+    float: left;
+    margin-right: 0.8em;
+    padding: 0 0.8em 0 0;
+    border-right: 1px solid #a6ceef;
+}
+
+#header ul li:last-child {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.article {
+    max-width: 42em;
+    margin: 0 auto;
+}
+
+#content {
+    padding: 1em;
+}
+
+#content a {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 0.9em;
+}
+
+#content h2 {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.abstract {
+    border-bottom: 1px solid #ddd;
+    padding: 1.3em 0;
+}
+
+.abstract span, span.date {
+    display: block;
+    margin-bottom: 0.5em;
+    color: #005eb1;
+    font-size: 0.9em;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.links {
+    margin-top: 1em;
+}
+
+.next {
+    margin-right: 0.5em;
+    float: right;
+}
+
+.prev {
+    margin-left: 0.5em;
+    float: left;
+}
+
+#footer {
+    margin-top: auto;
+    padding: 1em 0;
+}
+
+#license {
+    float: right;
+    padding: 0.5em;
+}
+
+#license a:before, #license a:after {
+    content: "";
+}
+
+@media (max-width: 32em) {
+    #header h1 {font-size: 1.5em;}
+    #header ul {float: none;}
+    #header ul li {display: inline; float: none;}
+}

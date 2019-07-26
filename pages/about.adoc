@@ -1,0 +1,5 @@
+= about
+
+== Attributions
+
+Credit goes to link:https://www.sebastian-daschner.com[sebastian daschner] for inspiration on the blog look and feel.

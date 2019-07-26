@@ -1,0 +1,4 @@
+= 404
+
+== error 404: page not found
+How did you get here?

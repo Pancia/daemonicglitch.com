@@ -1,0 +1,5 @@
+= todos =
+- play / use css grid
+    - https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts
+    - https://gridbyexample.com/
+    - https://www.mozilla.org/en-US/developer/css-grid/

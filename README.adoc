@@ -1,0 +1,6 @@
+== Make sure to add this to your /etc/hosts file
+
+[/etc/hosts/]
+----
+127.0.0.1 daemonicglitch.com.localhost www.daemonicglitch.com.localhost
+----

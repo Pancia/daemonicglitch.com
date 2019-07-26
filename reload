@@ -1,0 +1,47 @@
+#!/bin/bash
+
+DEST_DIR="public"
+PAGES_DIR="pages"
+RESOURCES_DIR="resources"
+SOURCE_DIR="articles"
+STYLES_DIR="public/css/"
+STYLE_SHEET="styles.css"
+TEMPLATE_DIR="templates"
+
+rm -r $DEST_DIR/*
+cp -r $RESOURCES_DIR/* $DEST_DIR/
+
+asciidoctor --trace \
+    -a stylesdir=../$STYLES_DIR -a stylesheet=$STYLE_SHEET \
+    -a stylehref="/css/$STYLE_SHEET" \
+    -a blogentry=true \
+    --source-dir $SOURCE_DIR \
+    --destination-dir $DEST_DIR/$SOURCE_DIR \
+    --template-dir $TEMPLATE_DIR \
+    -- $SOURCE_DIR/**/*.adoc
+
+asciidoctor --trace \
+    -a stylesdir=../$STYLES_DIR -a stylesheet=$STYLE_SHEET \
+    -a stylehref="/css/$STYLE_SHEET" \
+    --require ./lib/blog-entries-macro.rb \
+    --destination-dir $DEST_DIR \
+    --source-dir $SOURCE_DIR \
+    --template-dir $TEMPLATE_DIR \
+    -- $PAGES_DIR/**/*.adoc
+
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+    asciidoctor --trace \
+        -a stylesdir=../$STYLES_DIR -a stylesheet=$STYLE_SHEET \
+        -a stylehref="/css/$STYLE_SHEET" \
+        -a blogentry=true \
+        --destination-dir $DEST_DIR/drafts \
+        --source-dir drafts \
+        --template-dir $TEMPLATE_DIR \
+        drafts/**/*.adoc
+fi
+
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+    nginx -s reload
+else
+    service nginx reload
+fi
