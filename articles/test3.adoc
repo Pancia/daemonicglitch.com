@@ -1,7 +1,0 @@
-= test 3, the latest! =
-:published-date: 2019-05-27
-
-[[abstract]]
-i have some stuff in the abstract!
-
-and some other stuff in the rest of the blog post

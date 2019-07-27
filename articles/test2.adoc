@@ -1,9 +1,0 @@
-= test2, another test =
-:published-date: 2019-05-17
-
-[[abstract]]
-this also goes in the abstract
-summary that shows up on the index page
-
-this is the test 2 content
-hello!

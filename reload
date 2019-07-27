@@ -23,7 +23,6 @@ asciidoctor --trace \
 asciidoctor --trace \
     -a stylesdir=../$STYLES_DIR -a stylesheet=$STYLE_SHEET \
     -a stylehref="/css/$STYLE_SHEET" \
-    --require ./lib/blog-entries-macro.rb \
     --destination-dir $DEST_DIR \
     --source-dir $SOURCE_DIR \
     --template-dir $TEMPLATE_DIR \

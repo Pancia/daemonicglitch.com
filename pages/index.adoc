@@ -1,3 +1,2 @@
 :doctitle: daemonic glitch
 
-blog_entries::articles[]
