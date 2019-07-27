@@ -1,2 +1,5 @@
 :doctitle: daemonic glitch
 
+= daemonic primer
+
+== primer alpha release coming this weekend ~7/28 !
