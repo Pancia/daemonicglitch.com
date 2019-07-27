@@ -22,9 +22,10 @@ html lang=(attr :lang, 'en' unless attr? :nolang)
         h1: a[href='/'] daemonic glitch
         hr
         nav.menu: ul
+          li: a[href='/'] home
+          li: a[href='/primer'] primer
+          li: a[href='/help'] help
           li: a[href='/about'] about
-          li: a[href='/'] blog
-          li: a[href='/projects'] projects
         - if (attr? :toc) && (attr? 'toc-placement', 'auto')
           #toc class=(attr 'toc-class', 'toc')
             #toctitle =(attr 'toc-title')

@@ -1,0 +1,3 @@
+:doctitle: daemonic glitch: primer
+
+WIP: primer about
