@@ -3,7 +3,6 @@
 DEST_DIR="public"
 PAGES_DIR="pages"
 RESOURCES_DIR="resources"
-SOURCE_DIR="articles"
 STYLES_DIR="public/css/"
 STYLE_SHEET="styles.css"
 TEMPLATE_DIR="templates"
@@ -14,17 +13,8 @@ cp -r $RESOURCES_DIR/* $DEST_DIR/
 asciidoctor --trace \
     -a stylesdir=../$STYLES_DIR -a stylesheet=$STYLE_SHEET \
     -a stylehref="/css/$STYLE_SHEET" \
-    -a blogentry=true \
-    --source-dir $SOURCE_DIR \
-    --destination-dir $DEST_DIR/$SOURCE_DIR \
-    --template-dir $TEMPLATE_DIR \
-    -- $SOURCE_DIR/**/*.adoc
-
-asciidoctor --trace \
-    -a stylesdir=../$STYLES_DIR -a stylesheet=$STYLE_SHEET \
-    -a stylehref="/css/$STYLE_SHEET" \
     --destination-dir $DEST_DIR \
-    --source-dir $SOURCE_DIR \
+    --source-dir $PAGES_DIR \
     --template-dir $TEMPLATE_DIR \
     -- $PAGES_DIR/**/*.adoc
 
