@@ -2,4 +2,4 @@
 
 == Attributions
 
-Credit goes to link:https://www.sebastian-daschner.com[sebastian daschner] for inspiration on the blog look and feel.
+Credit goes to link:https://www.sebastian-daschner.com[sebastian daschner] for inspiration on the look and feel.
